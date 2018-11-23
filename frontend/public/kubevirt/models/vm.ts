@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import { K8sKind } from '../../module/k8s';
 
+// TODO: reuse following from kubevirt-web-ui-components to avoid duplicity
+
 export const VirtualMachineModel: K8sKind = {
   label: 'Virtual Machine',
   labelPlural: 'Virtual Machines',
@@ -64,4 +66,17 @@ export const NetworkAttachmentDefinitionModel: K8sKind = {
   abbr: 'NAD',
   kind: 'NetworkAttachmentDefinition',
   id: 'network-attachment-definition',
+};
+
+export const VirtualMachineInstanceMigrationModel: K8sKind = {
+  label: 'Virtual Machine Instance Migration',
+  labelPlural: 'Virtual Machine Instance Migrations',
+  apiVersion: 'v1alpha2',
+  path: 'virtualmachineinstancemigrations',
+  apiGroup: 'kubevirt.io',
+  plural: 'virtualmachineinstancemigrations',
+  abbr: 'VMIM',
+  namespaced: true,
+  kind: 'VirtualMachineInstanceMigration',
+  id: 'virtualmachineinstancemigration',
 };
