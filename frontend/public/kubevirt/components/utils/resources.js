@@ -73,6 +73,12 @@ export const getVncConnectionDetails = vmi => {
 
     // Example: ws://localhost:9000/api/kubernetes/apis/subresources.kubevirt.io/v1alpha2/namespaces/kube-system/virtualmachineinstances/vm-cirros1/vnc
     path: `${getConsoleApiContext()}/${getConsoleApiPath(vmi)}/vnc${getConsoleApiQuery()}`,
+
+    manual: {
+      address: 'Service not exposed',
+      port: undefined,
+      tlsPort: undefined,
+    },
   };
 };
 
@@ -84,3 +90,14 @@ export const getSerialConsoleConnectionDetails = vmi => {
     path: `/${getConsoleApiContext()}/${getConsoleApiPath(vmi)}/console`, // CSRF Token will be added in WSFactory
   };
 };
+
+export const getRdpConnectionDetails = vmi => {
+  return {
+    vmi,
+
+    manual: {
+      address: 'RDP Service not exposed',
+    },
+  };
+};
+

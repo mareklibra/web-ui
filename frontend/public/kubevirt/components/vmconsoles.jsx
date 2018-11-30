@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getResourceKind, getVncConnectionDetails, getSerialConsoleConnectionDetails, getFlattenForKind } from './utils/resources';
+import { getLabelMatcher, getResourceKind, getVncConnectionDetails, getSerialConsoleConnectionDetails, getRdpConnectionDetails, getFlattenForKind, findVMI } from './utils/resources';
 
 import { Firehose } from './utils/okdutils';
 import { LoadingInline } from './okdcomponents';
@@ -24,7 +24,14 @@ const FirehoseVmConsoles = props => {
     start: true,
   });
 
-  return <VmConsoles vm={vm} vmi={vmi} onStartVm={onStartVm} getVncConnectionDetails={getVncConnectionDetails} getSerialConsoleConnectionDetails={getSerialConsoleConnectionDetails} LoadingComponent={LoadingInline} WSFactory={WSFactory} />;
+  return <VmConsoles vm={vm}
+    vmi={vmi}
+    onStartVm={onStartVm}
+    getVncConnectionDetails={getVncConnectionDetails}
+    getSerialConsoleConnectionDetails={getSerialConsoleConnectionDetails}
+    getRdpConnectionDetails={getRdpConnectionDetails}
+    LoadingComponent={LoadingInline}
+    WSFactory={WSFactory} />;
 };
 
 /**
