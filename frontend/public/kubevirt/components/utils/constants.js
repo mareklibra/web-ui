@@ -10,3 +10,5 @@ export const DISK = 'Disk';
 
 export const VIRT_LAUNCHER_POD_PREFIX = 'virt-launcher-';
 export const IMPORTER_DV_POD_PREFIX = 'importer-datavolume-';
+
+export const DEFAULT_RDP_PORT = 3389;
