@@ -27,9 +27,9 @@ const FirehoseVmConsoles = props => {
   return <VmConsoles vm={vm}
     vmi={vmi}
     onStartVm={onStartVm}
-    getVncConnectionDetails={getVncConnectionDetails}
-    getSerialConsoleConnectionDetails={getSerialConsoleConnectionDetails}
-    getRdpConnectionDetails={getRdpConnectionDetails}
+    vnc={getVncConnectionDetails(vmi)}
+    serial={getSerialConsoleConnectionDetails(vmi)}
+    rdp={getRdpConnectionDetails(vmi)}
     LoadingComponent={LoadingInline}
     WSFactory={WSFactory} />;
 };
