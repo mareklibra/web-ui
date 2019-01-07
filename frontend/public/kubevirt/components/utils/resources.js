@@ -42,9 +42,12 @@ export const findVMIMigration = (data, vmiName) => {
 const findPortOfService = (service, targetPort) => _.get(service, ['spec', 'ports'], [])
   .find(servicePort => targetPort === servicePort.targetPort);
 
+/*
+ See web-ui-components, request.js:addMetadata() for automatic VM name label addition to match the selector
+ */
 const findVMServiceWithPort = (vmi, allServices, targetPort) => (allServices || [])
   .find(service =>
-    vmi.metadata.name === _.get(service, ['spec', 'selector', TEMPLATE_VM_NAME_LABEL])
+    vmi && vmi.metadata && vmi.metadata.name === _.get(service, ['spec', 'selector', TEMPLATE_VM_NAME_LABEL])
     && !!findPortOfService(service, targetPort)
   );
 

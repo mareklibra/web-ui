@@ -43,7 +43,7 @@ const VmConsoles_ = ({ vm, vmi, services, pods }) => {
       serial={getSerialConsoleConnectionDetails(vmi)}
       rdp={rdp}
       LoadingComponent={LoadingInline}
-      WSFactory={WSFactory} />;
+      WSFactory={WSFactory} />
   </Fragment>;
 };
 
