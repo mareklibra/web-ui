@@ -4,8 +4,7 @@ import { getCSRFToken } from '../../../co-fetch';
 import { k8sBasePath } from '../../module/okdk8s';
 
 import { VirtualMachineInstanceMigrationModel, VirtualMachineInstanceModel, PodModel } from '../../models';
-import { DEFAULT_RDP_PORT } from './constants';
-import { TEMPLATE_VM_NAME_LABEL } from 'kubevirt-web-ui-components';
+import { TEMPLATE_VM_NAME_LABEL, DEFAULT_RDP_PORT } from 'kubevirt-web-ui-components';
 
 export const getResourceKind = (model, name, namespaced, namespace, isList, matchLabels, matchExpressions) => {
   const res = { kind:model.kind, namespaced, namespace, isList, prop: model.kind};
