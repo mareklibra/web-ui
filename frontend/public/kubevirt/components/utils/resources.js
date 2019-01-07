@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as _ from 'lodash-es';
 import { getCSRFToken } from '../../../co-fetch';
 import { k8sBasePath } from '../../module/okdk8s';
@@ -47,7 +48,7 @@ const findPortOfService = (service, targetPort) => _.get(service, ['spec', 'port
  */
 const findVMServiceWithPort = (vmi, allServices, targetPort) => (allServices || [])
   .find(service =>
-    vmi && vmi.metadata && vmi.metadata.name === _.get(service, ['spec', 'selector', TEMPLATE_VM_NAME_LABEL])
+    _.get(vmi, 'metadata.name') === _.get(service, ['spec', 'selector', TEMPLATE_VM_NAME_LABEL])
     && !!findPortOfService(service, targetPort)
   );
 
@@ -116,7 +117,6 @@ export const getSerialConsoleConnectionDetails = vmi => {
   };
 };
 
-/* eslint no-console: ["warn", { allow: ["log"] }] */
 const getRdpAddressPort = (rdpService, launcherPod) => {
   const rdpPortObj = findPortOfService(rdpService, DEFAULT_RDP_PORT);
   if (!rdpPortObj) {

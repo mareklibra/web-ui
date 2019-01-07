@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import {
   getResourceKind,
@@ -35,16 +35,14 @@ const VmConsoles_ = ({ vm, vmi, services, pods }) => {
     rdp = getRdpConnectionDetails(vmi, rdpService, launcherPod);
   }
 
-  return <Fragment>
-    <VmConsoles vm={vm}
-      vmi={vmi}
-      onStartVm={onStartVm}
-      vnc={getVncConnectionDetails(vmi)}
-      serial={getSerialConsoleConnectionDetails(vmi)}
-      rdp={rdp}
-      LoadingComponent={LoadingInline}
-      WSFactory={WSFactory} />
-  </Fragment>;
+  return <VmConsoles vm={vm}
+    vmi={vmi}
+    onStartVm={onStartVm}
+    vnc={getVncConnectionDetails(vmi)}
+    serial={getSerialConsoleConnectionDetails(vmi)}
+    rdp={rdp}
+    LoadingComponent={LoadingInline}
+    WSFactory={WSFactory} />;
 };
 
 /**
