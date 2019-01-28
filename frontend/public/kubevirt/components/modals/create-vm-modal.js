@@ -10,6 +10,8 @@ import {
   VmTemplateModel,
   DataVolumeModel,
 } from '../../models';
+import { getResource } from '../utils/resources';
+import { WithResources } from '../utils/withResources';
 import { units } from '../utils/okdutils';
 
 export const openCreateVmWizard = ( activeNamespace, createTemplate = false ) => {
@@ -54,8 +56,9 @@ export const openCreateVmWizard = ( activeNamespace, createTemplate = false ) =>
     }));
 
   launcher({
-    k8sCreate,
+    k8sCreate, // TODO: wrap in sort of "Context" object
     units,
+    WithResources, // for loading of data subsets based on actual user's selection
     createTemplate,
   });
 
