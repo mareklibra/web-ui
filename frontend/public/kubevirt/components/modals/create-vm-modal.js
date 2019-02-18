@@ -1,6 +1,6 @@
 import { modalResourceLauncher } from '../utils/modalResourceLauncher';
 import { CreateVmWizard, TEMPLATE_TYPE_LABEL, getResource, TEMPLATE_TYPE_VM, TEMPLATE_TYPE_BASE } from 'kubevirt-web-ui-components';
-import { k8sCreate, k8sGet } from '../../module/okdk8s';
+import { k8sCreate, k8sGet, k8sPatch } from '../../module/okdk8s';
 import {
   NamespaceModel,
   TemplateModel,
@@ -57,6 +57,7 @@ export const openCreateVmWizard = ( activeNamespace, createTemplate = false ) =>
   launcher({
     k8sCreate, // TODO: wrap in sort of "Context" object
     k8sGet,
+    k8sPatch,
     units,
     WithResources, // for loading of data subsets based on actual user's selection
     createTemplate,
