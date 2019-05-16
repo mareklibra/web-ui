@@ -36,7 +36,7 @@
       ".(ts|tsx|js|jsx)": "./node_modules/ts-jest/preprocessor.js"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/(?!(lodash-es|@novnc)/.*)"
+      "<rootDir>/node_modules/(?!(lodash-es|@novnc|@spice-project)/.*)"
     ],
     "testRegex": "/__tests__/.*\\.(ts|tsx|js|jsx)$",
     "setupFiles": [
