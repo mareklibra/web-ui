@@ -92,8 +92,8 @@
     xterm "^3.3.0"
 
 "@patternfly/react-console@1.x":
-  version "1.10.49"
-  resolved "https://registry.yarnpkg.com/@patternfly/react-console/-/react-console-1.10.49.tgz#30d3978e67831567ec7fb6b6c09d1600bf1032ad"
+  version "1.10.50"
+  resolved "https://registry.yarnpkg.com/@patternfly/react-console/-/react-console-1.10.50.tgz#a9e270b5acd95572909df89bdb8d469d91626102"
   dependencies:
     "@novnc/novnc" "^1.0.0"
     "@spice-project/spice-html5" "^0.2.1"
@@ -429,8 +429,8 @@ babel-plugin-emotion@^9.2.11:
     touch "^2.0.1"
 
 babel-plugin-macros@^2.0.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.6.0.tgz#1840d0778f27698e5ceaf1a831293b2a57fc26ae"
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.6.1.tgz#41f7ead616fc36f6a93180e89697f69f51671181"
   dependencies:
     "@babel/runtime" "^7.4.2"
     cosmiconfig "^5.2.0"
@@ -1397,9 +1397,9 @@ kind-of@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-1.1.0.tgz#140a3d2d41a36d2efcfa9377b62c24f8495a5c44"
 
-kubevirt-web-ui-components@0.1.34-7:
-  version "0.1.34-7"
-  resolved "https://registry.yarnpkg.com/kubevirt-web-ui-components/-/kubevirt-web-ui-components-0.1.34-7.tgz#d63ef14fad42cc1b197275f52f48429c568dac6d"
+kubevirt-web-ui-components@0.1.34-8:
+  version "0.1.34-8"
+  resolved "https://registry.yarnpkg.com/kubevirt-web-ui-components/-/kubevirt-web-ui-components-0.1.34-8.tgz#41716d788b1b68ed754d1425ba5e46dd52f38cf9"
   dependencies:
     "@patternfly/react-console" "1.x"
     classnames "2.x"
@@ -1792,8 +1792,8 @@ resolve-url@^0.2.1:
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
 
 resolve@^1.10.0:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.11.0.tgz#4014870ba296176b86343d50b60f3b50609ce232"
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.11.1.tgz#ea10d8110376982fef578df8fc30b9ac30a07a3e"
   dependencies:
     path-parse "^1.0.6"
 
@@ -2362,8 +2362,8 @@ xtend@~4.0.1:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
 xterm@^3.3.0:
-  version "3.14.1"
-  resolved "https://registry.yarnpkg.com/xterm/-/xterm-3.14.1.tgz#67bf03cf571b1331a1b7fc76daf90c0ab0911dfa"
+  version "3.14.2"
+  resolved "https://registry.yarnpkg.com/xterm/-/xterm-3.14.2.tgz#f1285288bdc7df7056ef4bde64311900748c3e5d"
 
 yallist@^2.1.2:
   version "2.1.2"
