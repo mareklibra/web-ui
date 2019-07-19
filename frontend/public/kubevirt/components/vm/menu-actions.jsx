@@ -3,7 +3,7 @@ import {
   BasicMigrationDialog,
   isMigrating,
   isVmRunning,
-  CloneDialog,
+  CloneVMModalFirehose,
   getResource,
   findVMIMigration,
   getVmStatus,
@@ -12,15 +12,11 @@ import {
 } from 'kubevirt-web-ui-components';
 import { isEmpty } from 'lodash-es';
 
-import { Kebab, LoadingInline } from '../utils/okdutils';
+import { Kebab, LoadingInline, Firehose } from '../utils/okdutils';
 import { k8sCreate, k8sPatch } from '../../module/okdk8s';
 import {
   VirtualMachineInstanceModel,
   VirtualMachineInstanceMigrationModel,
-  NamespaceModel,
-  PersistentVolumeClaimModel,
-  VirtualMachineModel,
-  DataVolumeModel,
   PodModel,
 } from '../../models/index';
 import { startStopVmModal } from '../modals/start-stop-vm-modal';
@@ -31,6 +27,7 @@ import {
 } from '../utils/resources';
 import { modalResourceLauncher } from '../utils/modalResourceLauncher';
 import { showError } from '../utils/showErrors';
+import { createModalLauncher } from '../../../components/factory';
 
 const getStatusForVm = (vm, actionArgs) => {
   if (!actionArgs) {
@@ -90,24 +87,7 @@ const menuActionClone = (kind, vm, actionArgs) => {
     hidden: isImporting(vm, actionArgs),
     label: 'Clone Virtual Machine',
     callback: () => {
-      return modalResourceLauncher(CloneDialog, {
-        namespaces: {
-          resource: getResource(NamespaceModel),
-          required: true,
-        },
-        persistentVolumeClaims: {
-          resource: getResource(PersistentVolumeClaimModel),
-          required: true,
-        },
-        virtualMachines: {
-          resource: getResource(VirtualMachineModel),
-          required: true,
-        },
-        dataVolumes: {
-          resource: getResource(DataVolumeModel),
-          required: true,
-        },
-      })({vm, k8sCreate, k8sPatch, LoadingComponent: LoadingInline});
+      return createModalLauncher(CloneVMModalFirehose)({vm, Firehose, k8sCreate, k8sPatch, LoadingComponent: LoadingInline});
     },
   };
 };
