@@ -56,3 +56,29 @@ export const PolicyModel: K8sKind = {
   plural: 'policies',
   id: '',
 };
+
+export const ClusterDeploymentModel: K8sKind = {
+  kind: 'ClusterDeployment',
+  label: 'ClusterDeployment',
+  labelPlural: 'ClusterDeployments',
+  apiGroup: 'hive.openshift.io',
+  apiVersion: 'v1',
+  abbr: 'CD',
+  namespaced: true,
+  crd: true,
+  plural: 'clusterdeployments',
+  id: 'clusterdeployment',
+};
+
+export const MachinePoolModel: K8sKind = {
+  kind: 'MachinePool',
+  label: 'MachinePool',
+  labelPlural: 'MachinePools',
+  apiGroup: 'hive.openshift.io',
+  apiVersion: 'v1',
+  abbr: 'MP',
+  namespaced: true,
+  crd: true,
+  plural: 'machinepools',
+  id: 'machinepool',
+};

@@ -107,6 +107,18 @@ const plugin: Plugin<ConsumedExtensions> = [
     },
   },
   {
+    type: 'Page/Route',
+    properties: {
+      exact: true,
+      path: `/${models.ClusterDeploymentModel.plural}/~new/form`,
+      loader: () =>
+        import('./components/create-cluster/CreateClusterPage' /* webpackChunkName: "mcm" */).then(
+          (m) => m.default,
+        ),
+      required: FLAG_ACM,
+    },
+  },
+  {
     type: 'Page/Resource/Details',
     properties: {
       model: models.ClusterModel,
