@@ -1,4 +1,24 @@
-import { K8sResourceKind, K8sResourceCondition } from '@console/internal/module/k8s';
+import { K8sResourceKind, K8sResourceCondition, K8sResourceCommon } from '@console/internal/module/k8s';
+
+export enum ClusterConditionTypes {
+  OK = 'OK',
+  // TODO: add more
+};
+
+export enum PolicyComplianceTypes {
+  MUST_HAVE = 'musthave',
+  // TODO: add more
+};
+
+export enum RemediationActionTypes {
+  INFORM = 'inform',
+  // TODO: add more
+};
+
+export enum SeverityTypes {
+  LOW = 'low',
+  // TODO: add more
+};
 
 export type ClusterSpec = {
   authInfo: any;
@@ -20,7 +40,44 @@ export type ClusterStatusKind = {
 
 export type ClusterCondition = K8sResourceCondition<ClusterConditionTypes>;
 
-export enum ClusterConditionTypes {
-  OK = 'OK',
-  // TODO
-}
+export type PolicyNamespaces = {
+  exclude?: string[];
+  include?: string[];
+};
+
+export type PolicyObjectDefinition = {
+  objectDefinition: K8sResourceCommon & {
+    spec: {
+      clusterAuditPolicy: {} // TODO
+      namespaceSelector: {
+        exclude?: string[];
+        include?: string[]
+      };
+      remediationAction: RemediationActionTypes
+      severity: SeverityTypes;
+    }
+  };
+  status: {
+    Validity: any; // TODO
+  };
+};
+
+export type PolicyTemplates = PolicyObjectDefinition[];
+
+export type PolicySpec = {
+  complianceType: PolicyComplianceTypes;
+  disabled: boolean;
+  namespaces: PolicyNamespaces;
+  "policy-templates": PolicyTemplates;
+  remediationAction: RemediationActionTypes;
+};
+
+export type PolicyStatus = {
+  placementBindings?: string[];
+  placementPolicies?: string[];
+};
+
+export type PolicyKind = {
+  spec: PolicySpec;
+  status: PolicyStatus;
+} & K8sResourceKind;

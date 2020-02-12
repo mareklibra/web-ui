@@ -70,7 +70,7 @@ const plugin: Plugin<ConsumedExtensions> = [
   {
     type: 'NavItem/Href',
     properties: {
-      perspective: 'acm',
+      perspective: PERSPECTIVE_ID,
       componentProps: {
         name: 'Overview',
         href: '/overview',
@@ -113,6 +113,43 @@ const plugin: Plugin<ConsumedExtensions> = [
       loader: () =>
         import('./components/cluster-details-page' /* webpackChunkName: "acm" */).then(
           (m) => m.ClusterDetailsPage,
+        ),
+    },
+    flags: {
+      required: [FLAG_ACM],
+    },
+  },
+  {
+    type: 'NavItem/ResourceNS',
+    properties: {
+      perspective: PERSPECTIVE_ID,
+      componentProps: {
+        name: 'Policies',
+        resource: referenceForModel(models.PolicyModel),
+      },
+    },
+    flags: {
+      required: [FLAG_ACM],
+    },
+  },
+  {
+    type: 'Page/Resource/List',
+    properties: {
+      model: models.PolicyModel,
+      loader: () =>
+        import('./components/policies' /* webpackChunkName: "acm" */).then((m) => m.PoliciesPage),
+    },
+    flags: {
+      required: [FLAG_ACM],
+    },
+  },
+  {
+    type: 'Page/Resource/Details',
+    properties: {
+      model: models.ClusterModel,
+      loader: () =>
+        import('./components/policy-details-page' /* webpackChunkName: "acm" */).then(
+          (m) => m.PolicyDetailsPage,
         ),
     },
     flags: {

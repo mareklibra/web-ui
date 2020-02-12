@@ -3,7 +3,10 @@ import { getNamespace, getName } from '@console/shared';
 import { ClusterCondition } from '../types';
 
 export const getLabelValue = (entity: K8sResourceKind, label: string): string =>
-  entity?.metadata?.labels[label] || undefined;
+  (entity?.metadata?.labels || {})[label];
+
+export const getAnnotationlValue = (entity: K8sResourceKind, label: string): string =>
+  (entity?.metadata?.annotations || {})[label];
 
 export const getConditions = (entity: K8sResourceKind): ClusterCondition[] =>
   entity?.status?.conditions || [];
