@@ -17,6 +17,7 @@ import { ClusterKind, ClusterStatusKind } from '../types';
 import { getLabelValue, getClusterStatus, getLoadedData } from '../selectors';
 import { ClusterStatus } from './cluster-status';
 import { ClusterNodes } from './cluster-nodes';
+import { getCreateClusterDropdownProps } from './create-cluster/utils';
 
 const tableColumnClasses = [
   classNames('col-lg-3', 'col-md-3', 'col-sm-4', 'col-xs-4'),
@@ -152,11 +153,14 @@ export const ClustersPage: React.FC<ClustersPageProps> = (props) => {
   return (
     <MultiListPage
       {...props}
-      namespace={undefined}
+      createProps={getCreateClusterDropdownProps()}
+      createButtonText="Deploy or Import Cluster"
+      namespace={undefined /* TODO: remove? */}
       ListComponent={ClusterList}
       title="Advanced Clusters Management"
       resources={resources}
       flatten={flatten}
+      canCreate
     />
   );
 };
